@@ -113,9 +113,9 @@ criterion = nn.CrossEntropyLoss()  # label loss
 ###################
 # Get model checkpoint, get saving folder
 ###################
-if args.resume == '':
-    raise Exception("please choose the trained model")
-model.load_state_dict(torch.load(args.resume))
+# if args.resume == '':
+#     raise Exception("please choose the trained model")
+# model.load_state_dict(torch.load(args.resume))
 
 ######################################################
 # Begin the computation
@@ -144,4 +144,4 @@ density_eigen, density_weight = hessian_comp.density()
 print('\n***Top Eigenvalues: ', top_eigenvalues)
 print('\n***Trace: ', np.mean(trace))
 
-get_esd_plot(density_eigen, density_weight)
+get_esd_plot(density_eigen, density_weight, save_path='example.pdf')
