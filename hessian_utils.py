@@ -102,7 +102,7 @@ def compute_hessian(model: nn.Module, loss_fn, data_points, labels=None):
         
     return hessian
 
-def plot_hessian(model: nn.Module, loss_fn, data_points, labels=None):
+def plot_hessian(model: nn.Module, loss_fn, data_points, labels=None, figsize = None, save_path=None, title="Hessian Matrix", vmax=0.001, vmin=-0.001):
     """
     Compute and plot the Hessian matrix of the loss with respect to model parameters.
     
@@ -113,9 +113,9 @@ def plot_hessian(model: nn.Module, loss_fn, data_points, labels=None):
         labels (torch.Tensor, optional): Labels for supervised learning tasks
     """
     hessian_matrix = compute_hessian(model, loss_fn, data_points, labels)
-    
+    plt.figure(figsize=figsize)
     # Plot the Hessian matrix
-    plt.imshow(hessian_matrix.detach().cpu().numpy(), cmap='viridis', aspect='auto', vmax=0.01, vmin=-0.01)
+    plt.imshow(hessian_matrix.detach().cpu().numpy(), cmap='RdBu_r', aspect='auto', vmax=vmax, vmin=vmin)
     plt.colorbar()
     
     # Add vertical and horizontal lines indicating layer weights
@@ -126,12 +126,15 @@ def plot_hessian(model: nn.Module, loss_fn, data_points, labels=None):
         plt.axvline(x=pos - 0.5, color='red', linestyle='--')
         plt.axhline(y=pos - 0.5, color='red', linestyle='--')
     
-    plt.title('Hessian Matrix')
+    plt.title(title)
     plt.xlabel('Parameter Index')
     plt.ylabel('Parameter Index')
+
+    if save_path is not None:
+        plt.savefig(save_path)
     plt.show()
 
-
+	
 class Hessian_model:
 	def __init__(self, model, dataloader, loss, n_classes=10):
 		self.model = model
