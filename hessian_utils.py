@@ -102,6 +102,35 @@ def compute_hessian(model: nn.Module, loss_fn, data_points, labels=None):
         
     return hessian
 
+def plot_hessian(model: nn.Module, loss_fn, data_points, labels=None):
+    """
+    Compute and plot the Hessian matrix of the loss with respect to model parameters.
+    
+    Args:
+        model (nn.Module): The neural network model
+        loss_fn: Loss function that takes model output (and optionally labels) as input
+        data_points (torch.Tensor): Input data points
+        labels (torch.Tensor, optional): Labels for supervised learning tasks
+    """
+    hessian_matrix = compute_hessian(model, loss_fn, data_points, labels)
+    
+    # Plot the Hessian matrix
+    plt.imshow(hessian_matrix.detach().cpu().numpy(), cmap='viridis', aspect='auto', vmax=0.01, vmin=-0.01)
+    plt.colorbar()
+    
+    # Add vertical and horizontal lines indicating layer weights
+    param_sizes = [p.numel() for p in model.parameters()]
+    param_cumsum = torch.cumsum(torch.tensor(param_sizes), dim=0).numpy()
+    
+    for pos in param_cumsum[:-1]:
+        plt.axvline(x=pos - 0.5, color='red', linestyle='--')
+        plt.axhline(y=pos - 0.5, color='red', linestyle='--')
+    
+    plt.title('Hessian Matrix')
+    plt.xlabel('Parameter Index')
+    plt.ylabel('Parameter Index')
+    plt.show()
+
 
 class Hessian_model:
 	def __init__(self, model, dataloader, loss, n_classes=10):
