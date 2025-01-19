@@ -25,15 +25,21 @@ mpl.use('Agg')
 import matplotlib.pyplot as plt
 
 
-def get_esd_plot(eigenvalues, weights, save_path = None):
+def get_esd_plot(eigenvalues, weights, save_path = None, title=None, x_lims=None):
     density, grids = density_generate(eigenvalues, weights)
+    plt.figure(figsize=(40, 8))
     plt.semilogy(grids, density + 1.0e-7)
     plt.ylabel('Density (Log Scale)', fontsize=14, labelpad=10)
     plt.xlabel('Eigenvlaue', fontsize=14, labelpad=10)
     plt.xticks(fontsize=12)
     plt.yticks(fontsize=12)
-    plt.axis([np.min(eigenvalues) - 1, np.max(eigenvalues) + 1, None, None])
-    plt.tight_layout()
+    if x_lims is not None:
+        plt.xlim(x_lims)
+    else:
+        plt.axis([np.min(eigenvalues) - 1, np.max(eigenvalues) + 1, None, None])
+    #plt.tight_layout()
+    if title is not None:
+        plt.title(title)
     if save_path is not None:
         plt.savefig(save_path)
     else:
