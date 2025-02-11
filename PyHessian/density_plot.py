@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 
 def get_esd_plot(eigenvalues, weights, save_path = None, title=None, x_lims=None):
     density, grids = density_generate(eigenvalues, weights)
-    plt.figure(figsize=(40, 8))
+    #plt.figure(figsize=(40, 8))
     plt.semilogy(grids, density + 1.0e-7)
     plt.ylabel('Density (Log Scale)', fontsize=14, labelpad=10)
     plt.xlabel('Eigenvlaue', fontsize=14, labelpad=10)
