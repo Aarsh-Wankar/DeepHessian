@@ -46,7 +46,8 @@ class hessian():
         assert (data != None and dataloader == None) or (data == None and
                                                          dataloader != None)
 
-        self.model = model.eval()  # make model is in evaluation model
+        # self.model = model.eval()  # make model is in evaluation model
+        self.model = model  # make model is in evaluation model
         self.criterion = criterion
 
         if data != None:
@@ -97,7 +98,7 @@ class hessian():
                                      params,
                                      grad_outputs=v,
                                      only_inputs=True,
-                                     retain_graph=False)
+                                     retain_graph=True)
             THv = [
                 THv1 + Hv1 * float(tmp_num_data) + 0.
                 for THv1, Hv1 in zip(THv, Hv)
