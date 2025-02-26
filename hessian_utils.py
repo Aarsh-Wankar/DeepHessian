@@ -21,8 +21,6 @@ def get_params(model_orig,  model_perb, direction, alpha):
         m_perb.data = m_orig.data + alpha * d
     return model_perb
 
-
-
 def get_classwise_loss(model,criterion, images, labels, n_classes):
 	class_losses = torch.zeros(n_classes)
 	class_counts = torch.zeros(n_classes)
@@ -48,6 +46,22 @@ def coagulate_dataloader(dataloader):
 	images = torch.cat(images)
 	labels = torch.cat(labels)
 	return images, labels
+
+def compute_grad_vector(model: nn.Module, loss_fn, data_points, labels=None):
+	parameters = list(model.parameters())
+	outputs = model(data_points)
+        
+	# Compute loss
+	if labels is not None:
+		loss = loss_fn(outputs, labels)
+	else:
+		loss = loss_fn(outputs)
+		
+	# Compute gradients
+	gradients = torch.autograd.grad(loss, parameters, create_graph=True)
+	grad_vector = torch.cat([g.flatten() for g in gradients])
+	
+	return loss, grad_vector
 
 def compute_hessian(model: nn.Module, loss_fn, data_points, labels=None):
     """
