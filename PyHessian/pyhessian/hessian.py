@@ -190,6 +190,41 @@ class hessian():
                 trace = np.mean(trace_vhv)
 
         return trace_vhv
+    
+    def layer_wise_trace(self, maxIter=100, tol=1e-3):
+        device = self.device
+        trace_vhv = []
+        for param in range(len(self.params)):
+            trace_vhv.append([])
+            trace = 0
+            for i in range(maxIter):
+                self.model.zero_grad()
+                v = [
+                    torch.randint_like(p, high=2, device=device)
+                    for p in self.params
+                ]
+                # generate Rademacher random variables
+                for v_i in v:
+                    v_i[v_i == 0] = -1
+
+                for j in range(len(self.params)):
+                    if j != param:
+                        v[j] = torch.zeros_like(v[j])
+
+                if self.full_dataset:
+                    _, Hv = self.dataloader_hv_product(v)
+                else:
+                    Hv = hessian_vector_product(self.gradsH, self.params, v)
+                trace_vhv[-1].append(group_product(Hv, v).cpu().item())
+                if abs(np.mean(trace_vhv[-1]) - trace) / (abs(trace) + 1e-6) < tol:
+                    break
+                else:
+                    trace = np.mean(trace_vhv[-1])
+                    
+        return trace_vhv
+        
+
+
 
     # def density(self, iter=100, n_v=1):
     #     """
