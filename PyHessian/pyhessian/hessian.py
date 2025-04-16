@@ -222,7 +222,33 @@ class hessian():
                     trace = np.mean(trace_vhv[-1])
                     
         return trace_vhv
+    
+    def curvature_array(self, maxIter=100, tol=1e-3):
+        device = self.device
+        curvatures = []
         
+        for i in range(maxIter):
+            self.model.zero_grad()
+            v = [
+                torch.randint_like(p, high=2, device=device)
+                for p in self.params
+            ]
+            # generate Rademacher random variables
+            for v_i in v:
+                v_i[v_i == 0] = -1
+            
+            if self.full_dataset:
+                _, Hv = self.dataloader_hv_product(v)
+            else:
+                Hv = hessian_vector_product(self.gradsH, self.params, v)
+            
+            # We do elementwise multiplication of Hv and v to get the curvature vector
+            curvature = [(hv * vi).cpu() for hv, vi in zip(Hv, v)]
+            curvatures.append(curvature)
+        return curvatures
+
+
+            
 
 
 

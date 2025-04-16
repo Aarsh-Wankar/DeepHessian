@@ -1,0 +1,78 @@
+# %%
+import torch
+import torch.nn as nn
+import numpy as np
+from torchvision import datasets, transforms
+import matplotlib.pyplot as plt
+import copy
+import time
+torch.autograd.set_detect_anomaly(True)
+
+mnist_trainset = datasets.MNIST(root='./data/mnist', train=True, download=True, transform=transforms.ToTensor())
+mnist_fashion_trainset = datasets.FashionMNIST(root='./data/fashion_mnist', train=True, download=True, transform=transforms.ToTensor())
+cifar_trainset = datasets.CIFAR10(root='./data/cifar10', train=True, download=True, transform=transforms.ToTensor())
+# Getting mnist test data
+mnist_testset = datasets.MNIST(root='./data/mnist', train=False, download=True, transform=transforms.ToTensor())
+mnist_fashion_testset = datasets.FashionMNIST(root='./data/fashion_mnist', train=False, download=True, transform=transforms.ToTensor())
+cifar_testset = datasets.CIFAR10(root='./data/cifar10', train=False, download=True, transform=transforms.ToTensor())
+
+torch.manual_seed(42)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Define the model
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(28*28, 100)
+        self.fc2 = nn.Linear(100, 10)
+
+    def forward(self, x):
+        x = x.view(-1, 28*28)
+        x = torch.relu(self.fc1(x))  # Use non-in-place activation (torch.relu instead of relu_)
+        x = self.fc2(x)
+        return x
+
+# Load data
+train_X = mnist_trainset.data
+train_y = mnist_trainset.targets
+train_X = train_X / 255.0  # Normalize the data
+train_X = train_X.to(device).float()
+train_y = torch.tensor(train_y, dtype=torch.int64).to(device)
+
+dataloader = torch.utils.data.DataLoader(list(zip(train_X, train_y)), batch_size=64, shuffle=True)
+
+# Model, optimizer, loss function
+model_SGD = Net().to(device)
+optimizer_SGD = torch.optim.SGD(model_SGD.parameters(), lr=1e-3)
+criterion = nn.CrossEntropyLoss()
+epochs = 5
+
+# Training loop
+for epoch in range(epochs):
+    model_SGD.train()
+    for i, (x, y) in enumerate(dataloader):
+        optimizer_SGD.zero_grad()
+        y_pred_SGD = model_SGD(x)
+        loss_SGD = criterion(y_pred_SGD, y)
+        
+        # Ensure no in-place operation here
+        loss_SGD.backward(create_graph=True)  # Do not modify the loss or gradients in place
+        print(f"Epoch {epoch+1}/{epochs}, Batch {i+1}/{len(dataloader)}, Loss: {loss_SGD.item()}")
+        optimizer_SGD.step()
+
+# Calculate second-order derivatives (Hessian)
+nodewise_traces = []
+
+for param in model_SGD.parameters():
+    if param.grad is not None:
+        param_trace = 0
+        for grad_element in param.grad.view(-1):
+            second_order_derivative = torch.autograd.grad(grad_element, param, retain_graph=True, create_graph=True)[0]
+            param_trace += second_order_derivative.sum()
+        nodewise_traces.append(param_trace)
+
+print("Nodewise Traces of the Hessian:")
+print(nodewise_traces)
+
+
+
