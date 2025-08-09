@@ -8,3 +8,5 @@ Hyperparameters: {'batch_size': 32, 'hessian_compute_interval': 200, 'hessian_ep
   warnings.warn(
 Starting training for 20 epochs...
 Epoch  1/20: Train Loss: 0.8389, Train Acc: 72.69%, Test Loss: 0.5177, Test Acc: 83.73%
+Epoch  2/20: Train Loss: 0.3987, Train Acc: 87.64%, Test Loss: 0.3854, Test Acc: 88.23%
+Epoch  3/20: Train Loss: 0.3054, Train Acc: 90.58%, Test Loss: 0.3392, Test Acc: 89.79%

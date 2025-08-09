@@ -7,3 +7,5 @@ Hyperparameters: {'batch_size': 32, 'hessian_compute_interval': 50, 'hessian_eps
 /home/aarsh.wankar/Hessian/DeepHessian/Curvy/curvy.py:64: UserWarning: Hessian computation function, criterion, or data loader not provided. Curvature-based scaling will be disabled.
   warnings.warn(
 Starting training for 20 epochs...
+Epoch  1/20: Train Loss: 1.2000, Train Acc: 59.27%, Test Loss: 0.6702, Test Acc: 78.76%
+Epoch  2/20: Train Loss: 0.5547, Train Acc: 82.50%, Test Loss: 0.5291, Test Acc: 83.70%
