@@ -1,0 +1,14 @@
+wandb_version: 1
+
+batch_size:
+  value: 128
+hessian_compute_interval:
+  value: 50
+hessian_epsilon:
+  value: 0.00025772156444667287
+hessian_n_iter:
+  value: 100
+learning_rate:
+  value: 0.008729717927627376
+momentum:
+  value: 0.19914962552473003

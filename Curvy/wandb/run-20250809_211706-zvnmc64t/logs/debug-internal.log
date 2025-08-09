@@ -1,0 +1,6 @@
+{"time":"2025-08-09T21:17:06.568159626+05:30","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2025-08-09T21:17:07.204264616+05:30","level":"INFO","msg":"stream: created new stream","id":"zvnmc64t"}
+{"time":"2025-08-09T21:17:07.204367289+05:30","level":"INFO","msg":"stream: started","id":"zvnmc64t"}
+{"time":"2025-08-09T21:17:07.204410386+05:30","level":"INFO","msg":"writer: started","stream_id":"zvnmc64t"}
+{"time":"2025-08-09T21:17:07.204413273+05:30","level":"INFO","msg":"sender: started","stream_id":"zvnmc64t"}
+{"time":"2025-08-09T21:17:07.20456033+05:30","level":"INFO","msg":"handler: started","stream_id":"zvnmc64t"}

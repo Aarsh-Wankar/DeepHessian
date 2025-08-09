@@ -1,0 +1,10 @@
+Using device: cuda:1
+Hyperparameters: {'batch_size': 32, 'hessian_compute_interval': 200, 'hessian_epsilon': 0.05433226744765345, 'hessian_n_iter': 100, 'learning_rate': 0.013542774428485995, 'momentum': 0.015557730932347696}
+/home/aarsh.wankar/miniconda/envs/ml/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/aarsh.wankar/miniconda/envs/ml/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/home/aarsh.wankar/Hessian/DeepHessian/Curvy/curvy.py:64: UserWarning: Hessian computation function, criterion, or data loader not provided. Curvature-based scaling will be disabled.
+  warnings.warn(
+Starting training for 20 epochs...
+Epoch  1/20: Train Loss: 0.8389, Train Acc: 72.69%, Test Loss: 0.5177, Test Acc: 83.73%

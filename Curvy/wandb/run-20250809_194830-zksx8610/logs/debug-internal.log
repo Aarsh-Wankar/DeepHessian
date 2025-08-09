@@ -1,0 +1,12 @@
+{"time":"2025-08-09T19:48:30.375358472+05:30","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2025-08-09T19:48:31.003463013+05:30","level":"INFO","msg":"stream: created new stream","id":"zksx8610"}
+{"time":"2025-08-09T19:48:31.003604657+05:30","level":"INFO","msg":"stream: started","id":"zksx8610"}
+{"time":"2025-08-09T19:48:31.003633637+05:30","level":"INFO","msg":"writer: started","stream_id":"zksx8610"}
+{"time":"2025-08-09T19:48:31.003633851+05:30","level":"INFO","msg":"sender: started","stream_id":"zksx8610"}
+{"time":"2025-08-09T19:48:31.003729494+05:30","level":"INFO","msg":"handler: started","stream_id":"zksx8610"}
+{"time":"2025-08-09T19:56:26.970130541+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.301866339,"progress":"2.6KB/2.6KB"}],"total_operations":1}}
+{"time":"2025-08-09T19:56:27.076647382+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-09T19:56:27.604974417+05:30","level":"INFO","msg":"stream: closing","id":"zksx8610"}
+{"time":"2025-08-09T19:56:27.605011588+05:30","level":"INFO","msg":"handler: closed","stream_id":"zksx8610"}
+{"time":"2025-08-09T19:56:27.605098254+05:30","level":"INFO","msg":"sender: closed","stream_id":"zksx8610"}
+{"time":"2025-08-09T19:56:27.605124477+05:30","level":"INFO","msg":"stream: closed","id":"zksx8610"}

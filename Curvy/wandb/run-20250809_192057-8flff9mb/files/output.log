@@ -1,0 +1,29 @@
+Using device: cuda:1
+Hyperparameters: {'batch_size': 32, 'hessian_compute_interval': 50, 'hessian_epsilon': 1.0928823833744058e-05, 'hessian_n_iter': 100, 'learning_rate': 0.0001268549996968721, 'momentum': 0.009897774130013422}
+/home/aarsh.wankar/miniconda/envs/ml/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/aarsh.wankar/miniconda/envs/ml/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/home/aarsh.wankar/Hessian/DeepHessian/Curvy/curvy.py:64: UserWarning: Hessian computation function, criterion, or data loader not provided. Curvature-based scaling will be disabled.
+  warnings.warn(
+Starting training for 20 epochs...
+Epoch  1/20: Train Loss: 2.2516, Train Acc: 20.18%, Test Loss: 2.1136, Test Acc: 26.83%
+Epoch  2/20: Train Loss: 1.9990, Train Acc: 31.21%, Test Loss: 1.8178, Test Acc: 39.13%
+Epoch  3/20: Train Loss: 1.7006, Train Acc: 42.86%, Test Loss: 1.5259, Test Acc: 49.82%
+Epoch  4/20: Train Loss: 1.4238, Train Acc: 52.89%, Test Loss: 1.2877, Test Acc: 58.36%
+Epoch  5/20: Train Loss: 1.2158, Train Acc: 59.94%, Test Loss: 1.1228, Test Acc: 63.74%
+Epoch  6/20: Train Loss: 1.0685, Train Acc: 65.09%, Test Loss: 1.0179, Test Acc: 67.18%
+Epoch  7/20: Train Loss: 0.9619, Train Acc: 68.72%, Test Loss: 0.9359, Test Acc: 70.07%
+Epoch  8/20: Train Loss: 0.8806, Train Acc: 71.48%, Test Loss: 0.8474, Test Acc: 73.28%
+Epoch  9/20: Train Loss: 0.8170, Train Acc: 73.67%, Test Loss: 0.8052, Test Acc: 74.35%
+Epoch 10/20: Train Loss: 0.7675, Train Acc: 75.14%, Test Loss: 0.7597, Test Acc: 76.23%
+Epoch 11/20: Train Loss: 0.7227, Train Acc: 76.68%, Test Loss: 0.7456, Test Acc: 76.61%
+Epoch 12/20: Train Loss: 0.6837, Train Acc: 78.00%, Test Loss: 0.7276, Test Acc: 76.91%
+Epoch 13/20: Train Loss: 0.6525, Train Acc: 79.01%, Test Loss: 0.6957, Test Acc: 78.13%
+Epoch 14/20: Train Loss: 0.6284, Train Acc: 79.89%, Test Loss: 0.6964, Test Acc: 77.98%
+Epoch 15/20: Train Loss: 0.6044, Train Acc: 80.77%, Test Loss: 0.6379, Test Acc: 79.90%
+Epoch 16/20: Train Loss: 0.5849, Train Acc: 81.39%, Test Loss: 0.6308, Test Acc: 80.26%
+Epoch 17/20: Train Loss: 0.5650, Train Acc: 81.98%, Test Loss: 0.6258, Test Acc: 80.47%
+Epoch 18/20: Train Loss: 0.5462, Train Acc: 82.53%, Test Loss: 0.6022, Test Acc: 81.15%
+Epoch 19/20: Train Loss: 0.5283, Train Acc: 83.12%, Test Loss: 0.5973, Test Acc: 81.50%
+Epoch 20/20: Train Loss: 0.5158, Train Acc: 83.62%, Test Loss: 0.5905, Test Acc: 81.68%

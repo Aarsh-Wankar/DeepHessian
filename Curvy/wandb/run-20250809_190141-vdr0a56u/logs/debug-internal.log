@@ -1,0 +1,12 @@
+{"time":"2025-08-09T19:01:41.999199693+05:30","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2025-08-09T19:01:42.618399562+05:30","level":"INFO","msg":"stream: created new stream","id":"vdr0a56u"}
+{"time":"2025-08-09T19:01:42.618547423+05:30","level":"INFO","msg":"stream: started","id":"vdr0a56u"}
+{"time":"2025-08-09T19:01:42.618539768+05:30","level":"INFO","msg":"handler: started","stream_id":"vdr0a56u"}
+{"time":"2025-08-09T19:01:42.618569078+05:30","level":"INFO","msg":"writer: started","stream_id":"vdr0a56u"}
+{"time":"2025-08-09T19:01:42.61862101+05:30","level":"INFO","msg":"sender: started","stream_id":"vdr0a56u"}
+{"time":"2025-08-09T19:17:13.165779314+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.660085652,"progress":"2.7KB/2.7KB"},{"desc":"uploading config.yaml","runtime_seconds":0.146045953,"progress":"2.6KB/2.6KB"}],"total_operations":2}}
+{"time":"2025-08-09T19:17:14.199863684+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-09T19:17:14.722122804+05:30","level":"INFO","msg":"stream: closing","id":"vdr0a56u"}
+{"time":"2025-08-09T19:17:14.722179864+05:30","level":"INFO","msg":"handler: closed","stream_id":"vdr0a56u"}
+{"time":"2025-08-09T19:17:14.722326113+05:30","level":"INFO","msg":"sender: closed","stream_id":"vdr0a56u"}
+{"time":"2025-08-09T19:17:14.722347541+05:30","level":"INFO","msg":"stream: closed","id":"vdr0a56u"}

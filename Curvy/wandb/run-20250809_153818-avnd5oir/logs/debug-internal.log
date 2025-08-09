@@ -1,0 +1,12 @@
+{"time":"2025-08-09T15:38:18.629992557+05:30","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2025-08-09T15:38:19.262081833+05:30","level":"INFO","msg":"stream: created new stream","id":"avnd5oir"}
+{"time":"2025-08-09T15:38:19.262163571+05:30","level":"INFO","msg":"stream: started","id":"avnd5oir"}
+{"time":"2025-08-09T15:38:19.262211643+05:30","level":"INFO","msg":"writer: started","stream_id":"avnd5oir"}
+{"time":"2025-08-09T15:38:19.262209921+05:30","level":"INFO","msg":"handler: started","stream_id":"avnd5oir"}
+{"time":"2025-08-09T15:38:19.262283699+05:30","level":"INFO","msg":"sender: started","stream_id":"avnd5oir"}
+{"time":"2025-08-09T15:43:23.031041175+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.313094588,"progress":"2.6KB/2.6KB"}],"total_operations":1}}
+{"time":"2025-08-09T15:43:23.10036359+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-09T15:43:23.629074462+05:30","level":"INFO","msg":"stream: closing","id":"avnd5oir"}
+{"time":"2025-08-09T15:43:23.629143992+05:30","level":"INFO","msg":"handler: closed","stream_id":"avnd5oir"}
+{"time":"2025-08-09T15:43:23.629263292+05:30","level":"INFO","msg":"sender: closed","stream_id":"avnd5oir"}
+{"time":"2025-08-09T15:43:23.629285152+05:30","level":"INFO","msg":"stream: closed","id":"avnd5oir"}

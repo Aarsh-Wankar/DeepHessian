@@ -1,0 +1,33 @@
+# Weights & Biases Sweep Configuration for Curvy Optimizer
+# This file defines the hyperparameter search space and optimization strategy
+
+program: resnet-18-hyperparam-tune.py
+method: bayes  # Options: grid, random, bayes
+metric:
+  goal: minimize
+  name: final_test_loss
+
+parameters:
+  batch_size:
+    values: [32, 64, 128]
+  
+  learning_rate:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 1e-1
+  
+  hessian_epsilon:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 1e-1
+  
+  momentum:
+    distribution: uniform
+    min: 0.0
+    max: 0.99
+  
+  hessian_compute_interval:
+    values: [10, 50, 100, 200]
+  
+  hessian_n_iter:
+    value: 100

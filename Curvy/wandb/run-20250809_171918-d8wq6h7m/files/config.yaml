@@ -1,0 +1,81 @@
+_wandb:
+    value:
+        cli_version: 0.21.1
+        e:
+            57d0cvbrdjooqgwq3vjxg1wm6nr5v191:
+                args:
+                    - --mode
+                    - agent
+                    - --sweep_id
+                    - e9eikptg
+                    - --count
+                    - "200"
+                codePath: Curvy/resnet-18-hyperparam-tune.py
+                codePathLocal: resnet-18-hyperparam-tune.py
+                cpu_count: 32
+                cpu_count_logical: 64
+                cudaVersion: "12.2"
+                disk:
+                    /:
+                        total: "101675311104"
+                        used: "63499927552"
+                email: karangandhi.programming@gmail.com
+                executable: /home/aarsh.wankar/miniconda/envs/ml/bin/python
+                git:
+                    commit: 7dd9babd4ffe99d5f5983e98cbc353f64ccc1409
+                    remote: https://github.com/Aarsh-Wankar/DeepHessian.git
+                gpu: Quadro RTX 5000
+                gpu_count: 2
+                gpu_nvidia:
+                    - architecture: Turing
+                      cudaCores: 3072
+                      memoryTotal: "17179869184"
+                      name: Quadro RTX 5000
+                      uuid: GPU-db2a065f-2b7e-1d82-1e43-827579770d50
+                    - architecture: Turing
+                      cudaCores: 3072
+                      memoryTotal: "17179869184"
+                      name: Quadro RTX 5000
+                      uuid: GPU-6a281231-02c5-b175-c25c-bf1699d92d29
+                host: hamilton
+                memory:
+                    total: "134799630336"
+                os: Linux-5.11.0-43-generic-x86_64-with-glibc2.31
+                program: /home/aarsh.wankar/Hessian/DeepHessian/Curvy/resnet-18-hyperparam-tune.py
+                python: CPython 3.10.16
+                root: /home/aarsh.wankar/Hessian/DeepHessian/Curvy
+                startedAt: "2025-08-09T11:49:18.476068Z"
+                writerId: 57d0cvbrdjooqgwq3vjxg1wm6nr5v191
+        m: []
+        python_version: 3.10.16
+        t:
+            "1":
+                - 1
+                - 41
+            "2":
+                - 1
+                - 41
+            "3":
+                - 2
+                - 14
+                - 62
+            "4": 3.10.16
+            "5": 0.21.1
+            "12": 0.21.1
+            "13": linux-x86_64
+batch_size:
+    value: 64
+hessian_compute_interval:
+    value: 100
+hessian_epsilon:
+    value: 0.0003783713081401127
+hessian_n_iter:
+    value: 100
+learning_rate:
+    value: 0.005242176500608846
+model_parameters:
+    value: 11181642
+momentum:
+    value: 0.6302859034960796
+trainable_parameters:
+    value: 11181642

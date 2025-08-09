@@ -1,0 +1,12 @@
+{"time":"2025-08-09T18:31:34.949356704+05:30","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2025-08-09T18:31:35.572353572+05:30","level":"INFO","msg":"stream: created new stream","id":"eveetqg2"}
+{"time":"2025-08-09T18:31:35.572424963+05:30","level":"INFO","msg":"stream: started","id":"eveetqg2"}
+{"time":"2025-08-09T18:31:35.57248631+05:30","level":"INFO","msg":"writer: started","stream_id":"eveetqg2"}
+{"time":"2025-08-09T18:31:35.572506502+05:30","level":"INFO","msg":"handler: started","stream_id":"eveetqg2"}
+{"time":"2025-08-09T18:31:35.572600936+05:30","level":"INFO","msg":"sender: started","stream_id":"eveetqg2"}
+{"time":"2025-08-09T18:47:51.880322717+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-summary.json","runtime_seconds":0.659322412,"progress":"580B/580B"},{"desc":"uploading config.yaml","runtime_seconds":0.209601425,"progress":"2.6KB/2.6KB"}],"total_operations":2}}
+{"time":"2025-08-09T18:47:52.100151402+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-09T18:47:52.614007238+05:30","level":"INFO","msg":"stream: closing","id":"eveetqg2"}
+{"time":"2025-08-09T18:47:52.614068715+05:30","level":"INFO","msg":"handler: closed","stream_id":"eveetqg2"}
+{"time":"2025-08-09T18:47:52.614235194+05:30","level":"INFO","msg":"sender: closed","stream_id":"eveetqg2"}
+{"time":"2025-08-09T18:47:52.614280496+05:30","level":"INFO","msg":"stream: closed","id":"eveetqg2"}

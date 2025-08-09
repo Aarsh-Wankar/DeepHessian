@@ -1,0 +1,55 @@
+{
+  "os": "Linux-5.11.0-43-generic-x86_64-with-glibc2.31",
+  "python": "CPython 3.10.16",
+  "startedAt": "2025-08-09T12:52:32.316412Z",
+  "args": [
+    "--mode",
+    "agent",
+    "--sweep_id",
+    "e9eikptg",
+    "--count",
+    "200"
+  ],
+  "program": "/home/aarsh.wankar/Hessian/DeepHessian/Curvy/resnet-18-hyperparam-tune.py",
+  "codePath": "Curvy/resnet-18-hyperparam-tune.py",
+  "codePathLocal": "resnet-18-hyperparam-tune.py",
+  "git": {
+    "remote": "https://github.com/Aarsh-Wankar/DeepHessian.git",
+    "commit": "7dd9babd4ffe99d5f5983e98cbc353f64ccc1409"
+  },
+  "email": "karangandhi.programming@gmail.com",
+  "root": "/home/aarsh.wankar/Hessian/DeepHessian/Curvy",
+  "host": "hamilton",
+  "executable": "/home/aarsh.wankar/miniconda/envs/ml/bin/python",
+  "cpu_count": 32,
+  "cpu_count_logical": 64,
+  "gpu": "Quadro RTX 5000",
+  "gpu_count": 2,
+  "disk": {
+    "/": {
+      "total": "101675311104",
+      "used": "63499997184"
+    }
+  },
+  "memory": {
+    "total": "134799630336"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "Quadro RTX 5000",
+      "memoryTotal": "17179869184",
+      "cudaCores": 3072,
+      "architecture": "Turing",
+      "uuid": "GPU-db2a065f-2b7e-1d82-1e43-827579770d50"
+    },
+    {
+      "name": "Quadro RTX 5000",
+      "memoryTotal": "17179869184",
+      "cudaCores": 3072,
+      "architecture": "Turing",
+      "uuid": "GPU-6a281231-02c5-b175-c25c-bf1699d92d29"
+    }
+  ],
+  "cudaVersion": "12.2",
+  "writerId": "1zxqxokjfec1rjgjsoq6mgzcx5f6bicp"
+}
