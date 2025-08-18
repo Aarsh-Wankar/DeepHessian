@@ -4,3 +4,9 @@
 {"time":"2025-08-09T21:17:07.204410386+05:30","level":"INFO","msg":"writer: started","stream_id":"zvnmc64t"}
 {"time":"2025-08-09T21:17:07.204413273+05:30","level":"INFO","msg":"sender: started","stream_id":"zvnmc64t"}
 {"time":"2025-08-09T21:17:07.20456033+05:30","level":"INFO","msg":"handler: started","stream_id":"zvnmc64t"}
+{"time":"2025-08-09T21:32:36.695991226+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.338794351,"progress":"2.6KB/2.6KB"}],"total_operations":1}}
+{"time":"2025-08-09T21:32:36.745004434+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-09T21:32:37.277180661+05:30","level":"INFO","msg":"stream: closing","id":"zvnmc64t"}
+{"time":"2025-08-09T21:32:37.277231188+05:30","level":"INFO","msg":"handler: closed","stream_id":"zvnmc64t"}
+{"time":"2025-08-09T21:32:37.277363705+05:30","level":"INFO","msg":"sender: closed","stream_id":"zvnmc64t"}
+{"time":"2025-08-09T21:32:37.277383302+05:30","level":"INFO","msg":"stream: closed","id":"zvnmc64t"}

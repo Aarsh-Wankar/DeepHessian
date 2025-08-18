@@ -24,6 +24,7 @@ class Curvy(Optimizer):
         criterion (callable): Loss function
         hessian_data_loader (torch.utils.data.DataLoader): DataLoader for Hessian computation
         cuda (bool): Whether to use CUDA
+        cuda_device (str): CUDA device to use (default: "cuda:0")
     """
     
     def __init__(self, params, lr: float, momentum: float = 0.9, dampening: float = 0,
@@ -31,7 +32,7 @@ class Curvy(Optimizer):
                  hessian_compute_interval: int = 100, hessian_n_iter: int = 20, n_hess_samples: int = 100,
                  hessian_epsilon: float = 1e-6, hessian_computer: Callable = None,
                  criterion: Callable = None, train_x: Any = None, train_y: Any = None, model: nn.Module = None,
-                 cuda: bool = False):
+                 cuda: bool = False, cuda_device = "cuda:0"):
         
         if lr < 0.0:
             raise ValueError(f"Invalid learning rate: {lr}")
@@ -55,12 +56,20 @@ class Curvy(Optimizer):
         self.train_X = train_x
         self.train_y = train_y
         self.cuda = cuda
+        if(self.cuda):
+            if isinstance(cuda_device, torch.device):
+                self.cuda_device = cuda_device
+            else:
+                self.cuda_device = torch.device(cuda_device)
+        else:
+            self.cuda_device = torch.device('cpu')
         self.iteration_count = 0
         self.mean_curvature_values = None
         self.n_hess_samples = n_hess_samples
         self.model = model
         
         if hessian_computer is None or criterion is None or train_x is None:
+            print("No hessian computer")
             warnings.warn(
                 "Hessian computation function, criterion, or data loader not provided. "
                 "Curvature-based scaling will be disabled."
@@ -70,37 +79,44 @@ class Curvy(Optimizer):
         """Compute curvature based on Hessian."""
         if self.hessian_computer is None or self.criterion is None or self.train_X is None:
             return None
-        
+
         # Store original training mode and set to eval for Hessian computation
         training_mode = self.model.training
         self.model.eval()
         
         # Compute Hessian and curvature
-        try:
-            indices = torch.randperm(self.train_X.size(0))[:self.n_hess_samples]
-            random_hessian_loader = (self.train_X[indices], self.train_y[indices])
-            # print(random_hessian_loader)
-            hessian = self.hessian_computer(
-                self.model, 
-                self.criterion, 
-                data=random_hessian_loader, 
-                cuda=self.cuda
-            )
-            curvature = hessian.curvature_array(self.hessian_n_iter, 1e-3)
-            mean_curvature = self._mean_curvature(curvature)
-            
-            # Restore original training mode
-            self.model.train(training_mode)
-            
-            return mean_curvature
-        except Exception as e:
-            warnings.warn(f"Hessian computation failed: {str(e)}")
-            self.model.train(training_mode)
-            return None
+        indices = torch.randperm(self.train_X.size(0))[:self.n_hess_samples]
+        random_hessian_loader = (self.train_X[indices], self.train_y[indices])
+        
+        # print(random_hessian_loader)
+        hessian = self.hessian_computer(
+            self.model, 
+            self.criterion, 
+            data=random_hessian_loader, 
+            cuda=self.cuda,
+            cuda_device=self.cuda_device
+        )
+        curvature = hessian.curvature_array(self.hessian_n_iter, 1e-3)
+        mean_curvature = self._mean_curvature(curvature)
+        
+        # Restore original training mode
+        self.model.train(training_mode)
+        
+        return mean_curvature
     
+    # def _mean_curvature(self, curvature):
+    #     """Compute mean curvature from curvature tensor."""
+    #     return [torch.tensor(np.mean([curvature[i][j] for i in range(len(curvature))], axis=0)).to('cuda' if self.cuda else 'cpu') for j in range(len(curvature[0]))]
     def _mean_curvature(self, curvature):
         """Compute mean curvature from curvature tensor."""
-        return [torch.tensor(np.mean([curvature[i][j] for i in range(len(curvature))], axis=0)).to('cuda' if self.cuda else 'cpu') for j in range(len(curvature[0]))]
+        device = self.cuda_device if self.cuda else torch.device('cpu')
+        return [
+            torch.as_tensor(
+                np.mean([curvature[i][j] for i in range(len(curvature))], axis=0),
+                device=device
+            )
+            for j in range(len(curvature[0]))
+        ]
     
     def step(self, closure=None):
         """Performs a single optimization step.
@@ -159,10 +175,15 @@ class Curvy(Optimizer):
                 if self.mean_curvature_values is not None and param_index < len(self.mean_curvature_values):
                     cur = self.mean_curvature_values[param_index]
                     if cur is not None and cur.shape == d_p.shape:
-                        d_p = d_p / torch.max(
-                            torch.abs(cur), 
-                            torch.ones_like(cur) * self.hessian_epsilon
-                        )
+                        # d_p = d_p / torch.max(
+                        #     torch.abs(cur), 
+                        #     torch.ones_like(cur) * self.hessian_epsilon
+                        # )
+                        # Move curvature to the same device as the grad
+                        cur = cur.to(d_p.device, non_blocking=True)
+                        eps = torch.full_like(cur, self.hessian_epsilon)
+                        denom = torch.max(torch.abs(cur), eps)
+                        d_p = d_p / denom
                 param_index += 1
                 
                 # Apply momentum

@@ -9,3 +9,21 @@ Hyperparameters: {'batch_size': 32, 'hessian_compute_interval': 50, 'hessian_eps
 Starting training for 20 epochs...
 Epoch  1/20: Train Loss: 1.2000, Train Acc: 59.27%, Test Loss: 0.6702, Test Acc: 78.76%
 Epoch  2/20: Train Loss: 0.5547, Train Acc: 82.50%, Test Loss: 0.5291, Test Acc: 83.70%
+Epoch  3/20: Train Loss: 0.4273, Train Acc: 86.58%, Test Loss: 0.4445, Test Acc: 86.22%
+Epoch  4/20: Train Loss: 0.3538, Train Acc: 88.87%, Test Loss: 0.4232, Test Acc: 87.00%
+Epoch  5/20: Train Loss: 0.3003, Train Acc: 90.79%, Test Loss: 0.4570, Test Acc: 85.89%
+Epoch  6/20: Train Loss: 0.2542, Train Acc: 92.05%, Test Loss: 0.4135, Test Acc: 87.40%
+Epoch  7/20: Train Loss: 0.2147, Train Acc: 93.32%, Test Loss: 0.4053, Test Acc: 87.72%
+Epoch  8/20: Train Loss: 0.1809, Train Acc: 94.42%, Test Loss: 0.3873, Test Acc: 88.61%
+Epoch  9/20: Train Loss: 0.1545, Train Acc: 95.19%, Test Loss: 0.4660, Test Acc: 86.58%
+Epoch 10/20: Train Loss: 0.1284, Train Acc: 95.96%, Test Loss: 0.4064, Test Acc: 88.52%
+Epoch 11/20: Train Loss: 0.1080, Train Acc: 96.51%, Test Loss: 0.4414, Test Acc: 87.97%
+Epoch 12/20: Train Loss: 0.0909, Train Acc: 97.10%, Test Loss: 0.4368, Test Acc: 88.35%
+Epoch 13/20: Train Loss: 0.0764, Train Acc: 97.49%, Test Loss: 0.4388, Test Acc: 88.76%
+Epoch 14/20: Train Loss: 0.0622, Train Acc: 98.00%, Test Loss: 0.4582, Test Acc: 88.56%
+Epoch 15/20: Train Loss: 0.0538, Train Acc: 98.25%, Test Loss: 0.4617, Test Acc: 88.79%
+Epoch 16/20: Train Loss: 0.0449, Train Acc: 98.56%, Test Loss: 0.4755, Test Acc: 88.52%
+Epoch 17/20: Train Loss: 0.0446, Train Acc: 98.55%, Test Loss: 0.4839, Test Acc: 88.73%
+Epoch 18/20: Train Loss: 0.0386, Train Acc: 98.75%, Test Loss: 0.4940, Test Acc: 88.86%
+Epoch 19/20: Train Loss: 0.0341, Train Acc: 98.90%, Test Loss: 0.4887, Test Acc: 88.91%
+Epoch 20/20: Train Loss: 0.0290, Train Acc: 99.05%, Test Loss: 0.4851, Test Acc: 89.44%

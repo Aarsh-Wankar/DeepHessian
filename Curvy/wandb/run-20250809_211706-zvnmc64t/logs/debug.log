@@ -21,3 +21,10 @@ config: {'_wandb': {}}
 2025-08-09 21:17:07,729 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_redirect():2434] Redirects installed.
 2025-08-09 21:17:07,729 INFO    Thread-1421 (_run_job):1547589 [wandb_init.py:init():1075] run started, returning control to user process
 2025-08-09 21:17:11,170 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_config_callback():1380] config_cb None None {'model_parameters': 11181642, 'trainable_parameters': 11181642}
+2025-08-09 21:32:35,691 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_finish():2260] finishing run karan-gandhi-indian-institute-of-technology-gandhinagar/hessian-project-curvy/zvnmc64t
+2025-08-09 21:32:35,691 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_atexit_cleanup():2459] got exitcode: 0
+2025-08-09 21:32:35,691 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_restore():2441] restore
+2025-08-09 21:32:35,692 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_restore():2447] restore done
+2025-08-09 21:32:37,274 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_footer_history_summary_info():3895] rendering history
+2025-08-09 21:32:37,275 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_footer_history_summary_info():3927] rendering summary
+2025-08-09 21:32:37,276 INFO    Thread-1421 (_run_job):1547589 [wandb_run.py:_footer_sync_info():3856] logging synced files
