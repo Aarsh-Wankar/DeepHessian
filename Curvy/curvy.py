@@ -70,8 +70,7 @@ class Curvy(Optimizer):
         
         if hessian_computer is None or criterion is None or train_x is None:
             print("No hessian computer")
-
-            raise Exception(
+            warnings.warn(
                 "Hessian computation function, criterion, or data loader not provided. "
                 "Curvature-based scaling will be disabled."
             )
@@ -79,7 +78,7 @@ class Curvy(Optimizer):
     def _compute_curvature(self):
         """Compute curvature based on Hessian."""
         if self.hessian_computer is None or self.criterion is None or self.train_X is None:
-            raise Exception("Hessian Computer or Criterion or Training Data not provided.")
+            return None
 
         # Store original training mode and set to eval for Hessian computation
         training_mode = self.model.training
@@ -102,11 +101,7 @@ class Curvy(Optimizer):
         
         # Restore original training mode
         self.model.train(training_mode)
-        mx = max([c.abs().max() for c in mean_curvature])
-        mn = min([c.abs().min() for c in mean_curvature])
-
-        print("Max curvature:", mx.item())
-        print("Min curvature:", mn.item())
+        
         return mean_curvature
     
     # def _mean_curvature(self, curvature):
